@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon India</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <div class="navbar">
+        <div class="nav-logo border">
+            <div class="logo"></div>
+        </div>
+
+        <div class="nav-address border">
+            <p class="add-first">Deliver to</p>
+            <div class="add-icon">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="add-sec">Khordha 752057</p>
+            </div>
+        </div>
+
+        <div class="nav-search">
+            <select class="search-select">
+                <option>All</option>
+                <option>Appliances</option>
+                <option>Electronics</option>
+                <option>Home</option>
+                <option>Fashion</option>
+            </select>
+            <input placeholder="Search Amazon.in" class="search-input" id="searchInput" oninput="handleSearch(this.value)">
+            <div class="search-icon" onclick="handleSearch(document.getElementById('searchInput').value)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+
+        <div class="nav-language border">
+            <img src="flag.png" alt="India Flag" class="flag">
+            <select class="language-select">
+                <option>EN</option>
+                <option>HI</option>
+                <option>OD</option>
+                <option>TA</option>
+            </select>
+        </div>
+
+        <div class="nav-signin border">
+            <p><span>Hello, sign in</span></p>
+            <p class="nav-second">Account & Lists</p>
+        </div>
+
+        <div class="nav-return border">
+            <p><span>Returns</span></p>
+            <p class="nav-second">& Orders</p>
+        </div>
+
+        <div class="nav-cart border" onclick="toggleCart()">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="cart-count" id="cartCount">0</span>
+            <span>Cart</span>
+        </div>
+    </div>
+
+    <!-- PANEL -->
+    <div class="panel">
+        <div class="panel-all">
+            <i class="fa-solid fa-bars"></i> All
+        </div>
+        <p>Fresh</p>
+        <p>MX Player</p>
+        <p>Sell</p>
+        <p>Bestsellers</p>
+        <p>Today's Deals</p>
+        <p>Mobiles</p>
+        <p>Prime</p>
+        <p>New Releases</p>
+        <p>Customer Service</p>
+        <p>Electronics</p>
+        <p>Amazon Pay</p>
+        <p>Fashion</p>
+        <p>Home & Kitchen</p>
+    </div>
+</header>
+
+<!-- HERO -->
+<div class="hero-section"></div>
+
+<!-- SEARCH RESULTS (hidden by default) -->
+<div class="search-results" id="searchResults" style="display:none;">
+    <div class="search-header">
+        <h2 id="searchTitle">Search Results</h2>
+        <button onclick="clearSearch()">✕ Clear</button>
+    </div>
+    <div class="products-grid" id="searchGrid"></div>
+</div>
+
+<!-- SHOP SECTION -->
+<div class="shop-section" id="shopSection">
+
+    <!-- Box 1 -->
+    <div class="box">
+        <div class="box-content">
+            <h2>Appliances for your home</h2>
+            <div class="box-grid">
+                <div class="item" onclick="openProduct('ac')">
+                    <img src="images/ac.jpg" alt="Air Conditioner">
+                    <p>Air conditioners</p>
+                </div>
+                <div class="item" onclick="openProduct('fridge')">
+                    <img src="images/fridge.jpg" alt="Refrigerator">
+                    <p>Refrigerators</p>
+                </div>
+                <div class="item" onclick="openProduct('microwaves')">
+                    <img src="images/microwaves.jpg" alt="Microwave">
+                    <p>Microwaves</p>
+                </div>
+                <div class="item" onclick="openProduct('washing-machine')">
+                    <img src="images/washing-machine.jpg" alt="Washing Machine">
+                    <p>Washing machines</p>
+                </div>
+            </div>
+            <a href="#" onclick="showCategory('appliances'); return false;">See more</a>
+        </div>
+    </div>
+
+    <!-- Box 2 -->
+    <div class="box">
+        <div class="box-content">
+            <h2>Revamp your home in style</h2>
+            <div class="box-grid">
+                <div class="item" onclick="openProduct('cushion')">
+                    <img src="images/cushion.jpg" alt="Cushion">
+                    <p>Cushion covers</p>
+                </div>
+                <div class="item" onclick="openProduct('figurine')">
+                    <img src="images/figurine.jpg" alt="Figurine">
+                    <p>Figurines</p>
+                </div>
+                <div class="item" onclick="openProduct('storage')">
+                    <img src="images/storage.jpg" alt="Storage">
+                    <p>Home storage</p>
+                </div>
+                <div class="item" onclick="openProduct('lighting')">
+                    <img src="images/lighting.jpg" alt="Lighting">
+                    <p>Lighting solutions</p>
+                </div>
+            </div>
+            <a href="#" onclick="showCategory('home'); return false;">Explore all</a>
+        </div>
+    </div>
+
+    <!-- Box 3 -->
+    <div class="box">
+        <div class="box-content">
+            <h2>Starting ₹149 | Headphones</h2>
+            <div class="box-grid">
+                <div class="item" onclick="openProduct('boat')">
+                    <img src="images/boat.jpg" alt="boAt">
+                    <p>boAt</p>
+                </div>
+                <div class="item" onclick="openProduct('boult')">
+                    <img src="images/boult.jpg" alt="Boult">
+                    <p>Boult</p>
+                </div>
+                <div class="item" onclick="openProduct('noise')">
+                    <img src="images/noise.jpg" alt="Noise">
+                    <p>Noise</p>
+                </div>
+                <div class="item" onclick="openProduct('zebronics')">
+                    <img src="images/zebronics.jpg" alt="Zebronics">
+                    <p>Zebronics</p>
+                </div>
+            </div>
+            <a href="#" onclick="showCategory('electronics'); return false;">See all offers</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeProductModal()">✕</button>
+        <div class="modal-content">
+            <div class="modal-img-wrap">
+                <img id="modalImg" src="" alt="">
+            </div>
+            <div class="modal-details">
+                <p class="modal-brand" id="modalBrand"></p>
+                <h2 class="modal-title" id="modalTitle"></h2>
+                <div class="modal-rating">
+                    <span class="stars">★★★★☆</span>
+                    <span class="rating-count" id="modalRatings"></span>
+                </div>
+                <div class="modal-price">
+                    <span class="price-now" id="modalPrice"></span>
+                    <span class="price-old" id="modalOldPrice"></span>
+                    <span class="price-off" id="modalDiscount"></span>
+                </div>
+                <p class="modal-desc" id="modalDesc"></p>
+                <div class="modal-qty">
+                    <label>Qty:</label>
+                    <button onclick="changeQty(-1)">−</button>
+                    <span id="modalQty">1</span>
+                    <button onclick="changeQty(1)">+</button>
+                </div>
+                <div class="modal-btns">
+                    <button class="btn-cart" onclick="addToCartFromModal()">
+                        <i class="fa-solid fa-cart-shopping"></i> Add to Cart
+                    </button>
+                    <button class="btn-buy" onclick="buyNow()">
+                        Buy Now
+                    </button>
+                </div>
+                <p class="modal-delivery"><i class="fa-solid fa-truck"></i> Free delivery by <strong id="deliveryDate"></strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOverlay(event)">
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button onclick="toggleCart()">✕</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="empty-cart">Your cart is empty</p>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none;">
+            <div class="cart-total">
+                <span>Subtotal (<span id="totalQty">0</span> items):</span>
+                <strong id="totalPrice">₹0</strong>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">Proceed to checkout</button>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<!-- ORDER SUCCESS MODAL -->
+<div class="order-modal" id="orderModal" style="display:none;">
+    <div class="order-box">
+        <div class="order-icon">✓</div>
+        <h2>Order Placed!</h2>
+        <p>Your order has been placed successfully.</p>
+        <p class="order-id">Order #<span id="orderId"></span></p>
+        <button onclick="closeOrderModal()">Continue Shopping</button>
+    </div>
+</div>
+
+<!-- JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
